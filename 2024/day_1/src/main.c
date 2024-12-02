@@ -3,18 +3,26 @@
 #include <stdlib.h>
 #include <string.h>
 
-int main(void) {
+int main(int argc, char *argv[]) {
+	int i = 0;
+	int gigaarray[2][1000] = {0};
+	char str[15];
 	FILE *file;
 
-	file = fopen("input.txt", "r");
+	if (argc < 2) {
+        printf("Missing input file.\n");
+		exit(EXIT_FAILURE);
+	}
 
-	int gigaarray[2][1000] = {0};
+	file = fopen(argv[1], "r");
 
-	int i = 0;
-	char str[15];
-	
-    // Store the text file in the gigaarray
-    while (fgets(str, 15, file)) {
+	if (file == NULL) {
+        printf("Couldn't read %s.\n", argv[1]);
+		exit(EXIT_FAILURE);
+	}
+
+	// Store the text file in the gigaarray
+	while (fgets(str, 15, file)) {
 		char *saveptr1;
 		char *line;
 
@@ -38,10 +46,10 @@ int main(void) {
 		for (int j = 0; j < 2; j++) {
 			printf("%d ", gigaarray[j][i]);
 		}
-        printf("\n");
+		printf("\n");
 	}
 
 	printf("Done\n");
 
-	return 0;
+	return EXIT_SUCCESS;
 }
