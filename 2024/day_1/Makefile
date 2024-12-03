@@ -1,6 +1,6 @@
 # Compiler and compiler flags
 CC := gcc
-CFLAGS := -Wall -Wextra -Iinclude -lm -O3
+CFLAGS := -Wall -Wextra -Iinclude -Ofast
 LDFLAGS := -lm
 
 DEBUGFLAGS := -g
