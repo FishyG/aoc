@@ -3,9 +3,15 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
+#include <time.h>
 
 // int main(int argc, char *argv[]) {
 int main(void) {
+
+    struct timespec start, end;
+
+    clock_gettime(CLOCK_MONOTONIC, &start);
+
 	int i = 0;
 	int giga_array[2][1000] = {{
 87501,
@@ -2078,6 +2084,13 @@ int main(void) {
         total_diff += abs(giga_array[0][i] - giga_array[1][i]);
     }
 	// printf("Done\n");
+
+    clock_gettime(CLOCK_MONOTONIC, &end);
+
+    double time_taken;
+    time_taken = end.tv_nsec - start.tv_nsec;
+
+	printf("Total: %f\n",time_taken);
 
 	printf("Total: %d\n",total_diff);
 
