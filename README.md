@@ -9,3 +9,6 @@ OMG. someone edited main
 :hamburger: This repository contains my solutions for the Advent of Code challenges. Most solutions are implemented in **C**.
 
 :cn_flag:
+
+🍌
+
